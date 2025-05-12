@@ -1,0 +1,12 @@
+name: DAST with OWASP ZAP
+on:
+  push:
+    branches: [main]
+jobs:
+  zap-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: zaproxy/action-baseline@v0.14.0
+        with:
+          target: https://cs362.alexulbrich.com
+          fail_action: true
